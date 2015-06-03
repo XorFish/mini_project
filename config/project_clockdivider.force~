@@ -1,0 +1,6 @@
+vsim -t ns CLOCKDIVIDER
+add wave -hex *
+force clock	0 0ns, 1 10ns -repeat 20ns 
+force reset	1 0ns, 0 40ns
+run 100000ns
+

@@ -1,0 +1,12 @@
+
+ClockDivider_entity.vhdl
+Counter_entity.vhdl
+Receiver_entity.vhdl
+Transmitter_entity.vhdl
+calculator_entity.vhdl
+ClockDivider_behaviour.vhdl
+Counter_behaviour.vhdl
+Receiver_behaviour.vhdl
+Transmitter_behaviour.vhdl
+calculator_behaviour.vhdl
+

@@ -1,0 +1,7 @@
+vsim -t ns Top_level
+add wave -hex *
+force clock	0 0ns, 1 10ns -repeat 21ns 
+force reset	1 0ns, 0 20ns
+force channel	1 0ns, 0 1600000ns	-repeat 20ms
+
+run 150ms

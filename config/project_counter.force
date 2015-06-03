@@ -1,0 +1,10 @@
+vsim -t ns COUNTER
+add wave -hex *
+force clock	0 0ns, 1 10ns -repeat 20ns 
+force reset	1 0ns, 0 40ns
+force kickoff	1 0ns, 1 20ns -repeat 67200ns		
+force channel	1 0ns, 0 1500n-repeat 638000ns
+					
+			
+run 63800000ns
+

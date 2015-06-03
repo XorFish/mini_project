@@ -1,0 +1,87 @@
+
+ARCHITECTURE counter OF COUNTER IS
+--Signale/Components
+SIGNAL s_time : std_logic_vector(8 DOWNTO 0);
+SIGNAL s_puls:	std_logic_vector(8 DOWNTO 0);
+SIGNAL s_schieberegister: std_logic_vector(2 DOWNTO 0);
+SIGNAL s_positive_flanke: std_logic;
+SIGNAL s_negative_flanke: std_logic;
+SIGNAL s_overflow: std_logic;
+SIGNAL s_trep_ok:std_logic_vector(5 DOWNTO 0);
+SIGNAL s_trep : std_logic;
+
+
+BEGIN
+
+
+	--Vergleichswerte für s_time: t(kikcoff)=3200/48MHz=66,66*10^-6s 
+	--13ms->195 Kickoffs     15ms->225 Kickoffs
+
+	s_overflow<='1' WHEN (unsigned(s_time)=225) ELSE '0';
+	s_trep<='1' WHEN (unsigned(s_time)>195 AND unsigned(s_time)<225);
+	
+	PROCESS(clock, kickoff, s_trep_ok, s_trep, s_positive_flanke, s_overflow, s_time, reset)
+	BEGIN
+		IF(reset='1') THEN 
+			s_time<="000000000";--Null setzen
+			s_puls<="000000000";
+			s_trep_ok<="000000";
+		ELSIF(rising_edge(clock) AND kickoff='1' AND s_positive_flanke='1')THEN
+			s_overflow<='0';
+			s_time<=(others=>'0');--Null setzen
+			s_trep_ok <= s_trep_ok(4 DOWNTO 0)& s_trep;--Jedesmal wenn die t rep stimmt wird eine 1 in das s_trep_ok geschrieben
+		ELSIF(rising_edge(clock) AND kickoff='1' AND s_negative_flanke='1')THEN
+			s_puls<=s_time;
+		ELSIF(rising_edge(clock) AND kickoff='1' AND unsigned(s_time)<270) THEN
+			s_time<=std_logic_vector(unsigned(s_time)+1);	
+		END IF;		
+			
+	END PROCESS;
+
+	--überprüfen ob wir 6 mal ein gültiges Signal haben
+	ON_OFF<= '1' WHEN s_trep_ok="111111" ELSE '0';
+	
+
+	--Dieser Prozess generiert eine Positive und eine Negative Flanke 
+	PROCESS(channel,clock,kickoff, reset)
+	BEGIN
+		IF(reset='1') THEN 
+			s_schieberegister<="000";
+		ELSIF(rising_edge(clock) AND kickoff='1') THEN
+                	s_schieberegister <= s_schieberegister(1 DOWNTO 0)&channel;
+		END IF;
+		
+	END PROCESS;
+
+	s_positive_flanke<=(s_schieberegister(1))AND NOT(s_schieberegister(2));
+	s_negative_flanke<=NOT(s_schieberegister(1)) AND (s_schieberegister(2));
+	
+
+	--Vergleichswerte für s_time: t(kikcoff)=3200/48MHz=66,66*10^-6s 
+	--13ms->195 Kickoffs     15ms->225 Kickoffs
+
+
+		result<="1111" WHEN  (unsigned(s_puls)<=16) ELSE--max Reverse
+			"1110" WHEN  (unsigned(s_puls)=17) ELSE
+			"1101" WHEN  (unsigned(s_puls)=18) ELSE
+			"1100" WHEN  (unsigned(s_puls)=19) ELSE
+			"1011" WHEN  (unsigned(s_puls)=20) ELSE
+			"1010" WHEN  (unsigned(s_puls)=21) ELSE
+			"1001" WHEN  (unsigned(s_puls)=22) ELSE
+			"1000" WHEN  (unsigned(s_puls)=23) ELSE
+			"0000" WHEN  (unsigned(s_puls)=23) ELSE
+			"0001" WHEN  (unsigned(s_puls)=24) ELSE
+			"0010" WHEN  (unsigned(s_puls)=25) ELSE
+			"0011" WHEN  (unsigned(s_puls)=26) ELSE
+			"0100" WHEN  (unsigned(s_puls)=27) ELSE
+			"0101" WHEN  (unsigned(s_puls)=28) ELSE
+			"0110" WHEN  (unsigned(s_puls)=29) ELSE
+			"0111" WHEN  (unsigned(s_puls)>=30) ELSE--Max Forward
+			"0000";
+
+
+
+
+
+	
+END counter;

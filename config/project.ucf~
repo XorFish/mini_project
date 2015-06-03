@@ -1,0 +1,12 @@
+NET "clock"    LOC = "N9";
+NET "clock" TNM_NET = "clock";
+NET "out_left" LOC = "R14" ;
+NET "out_right" LOC = "T14" ;
+NET "ch_dir" LOC = "N5" ;
+NET "ch_spe" LOC = "M8" ;
+NET "reset" LOC = "L8" | PULLUP ;
+
+
+TIMESPEC "TS_clock" = PERIOD "clock" 48 MHz HIGH 50 %;
+
+
