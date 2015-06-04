@@ -61,22 +61,22 @@ BEGIN
 	--13ms->195 Kickoffs     15ms->225 Kickoffs
 
 
-		result<="1111" WHEN  (unsigned(s_puls)<=16) ELSE--max Reverse
-			"1110" WHEN  (unsigned(s_puls)=17) ELSE
-			"1101" WHEN  (unsigned(s_puls)=18) ELSE
-			"1100" WHEN  (unsigned(s_puls)=19) ELSE
-			"1011" WHEN  (unsigned(s_puls)=20) ELSE
-			"1010" WHEN  (unsigned(s_puls)=21) ELSE
-			"1001" WHEN  (unsigned(s_puls)=22) ELSE
-			"0000" WHEN  (unsigned(s_puls)=23) ELSE
+		result<="1111" WHEN  (unsigned(s_puls)<=17) ELSE--max Reverse
+			"1110" WHEN  (unsigned(s_puls)=18) ELSE
+			"1101" WHEN  (unsigned(s_puls)=19) ELSE
+			"1100" WHEN  (unsigned(s_puls)=20) ELSE
+			"1011" WHEN  (unsigned(s_puls)=21) ELSE
+			"1010" WHEN  (unsigned(s_puls)=22) ELSE
+			"1001" WHEN  (unsigned(s_puls)=23) ELSE
 			"0000" WHEN  (unsigned(s_puls)=24) ELSE
-			"0001" WHEN  (unsigned(s_puls)=25) ELSE
-			"0010" WHEN  (unsigned(s_puls)=26) ELSE
-			"0011" WHEN  (unsigned(s_puls)=27) ELSE
-			"0100" WHEN  (unsigned(s_puls)=28) ELSE
-			"0101" WHEN  (unsigned(s_puls)=29) ELSE
-			"0110" WHEN  (unsigned(s_puls)=30) ELSE
-			"0111" WHEN  (unsigned(s_puls)>=31) ELSE--Max Forward
+			"0000" WHEN  (unsigned(s_puls)=25) ELSE
+			"0001" WHEN  (unsigned(s_puls)=26) ELSE
+			"0010" WHEN  (unsigned(s_puls)=27) ELSE
+			"0011" WHEN  (unsigned(s_puls)=28) ELSE
+			"0100" WHEN  (unsigned(s_puls)=29) ELSE
+			"0101" WHEN  (unsigned(s_puls)=30) ELSE
+			"0110" WHEN  (unsigned(s_puls)=31) ELSE
+			"0111" WHEN  (unsigned(s_puls)>=32) ELSE--Max Forward
 			"0000";
 
 
