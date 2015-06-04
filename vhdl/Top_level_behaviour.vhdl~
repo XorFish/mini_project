@@ -53,7 +53,7 @@ BEGIN
 					result=>s_Speed
 			);
 
-	s_ON_OFF<=s_ON_OFF_dir AND s_ON_OFF_spe;
+	s_ON_OFF<=s_ON_OFF_dir OR s_ON_OFF_spe;
 	
 
 	calculator_device: calculator
@@ -73,6 +73,18 @@ BEGIN
 	out_r1<= s_Direction(1);
 	out_r2<= s_Direction(2);
 	out_r3<= s_Direction(3);
+
+	c_out0<=s_Left(0);
+	c_out1<=s_Left(1);
+	c_out2<=s_Left(2);
+	c_out3<=s_Left(3);
+
+	c_out4<=s_right(0);
+	c_out5<=s_right(1);
+	c_out6<=s_right(2);
+	c_out7<=s_right(3);
+
+
         --------------------------------------------
 
 

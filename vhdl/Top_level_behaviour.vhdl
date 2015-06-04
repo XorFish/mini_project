@@ -9,7 +9,7 @@ SIGNAL s_Speed:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Left:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Right:		std_logic_vector(3 DOWNTO 0);
 
---Settings Kermit: st_trim:8 th_trim:8
+--Settings Kermit: st_trim:33% R.B.U. th_trim:28% L.F.U
 
 COMPONENT RECEIVER
 

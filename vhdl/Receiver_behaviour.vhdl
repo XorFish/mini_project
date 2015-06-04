@@ -3,6 +3,8 @@ ARCHITECTURE receiver OF RECEIVER IS
 SIGNAL s_kickoff: 	std_logic;
 SIGNAL s_ON_OFF:	std_logic;
 SIGNAL s_result:	std_logic_vector(3 DOWNTO 0);
+SIGNAL s_resultSampled:	std_logic_vector(3 DOWNTO 0);
+SIGNAL s_ON_OFFSampled:	std_logic;
 
 COMPONENT clockdivider
 	Port( 	clock	: 	IN 	std_logic;
@@ -36,8 +38,19 @@ BEGIN
 				result=>s_result
 				);
 				
-		ON_OFF<=s_ON_OFF;
-		result<=s_result;
+		PROCESS(clock, reset,s_kickoff, s_ON_OFFSampled,s_ON_OFF,s_resultSampled,s_result)
+	BEGIN
+		IF(reset='1') THEN 
+			s_ON_OFFSampled<='0';--Null setzen
+			s_resultSampled<="0000";
+		ELSIF(rising_edge(clock) AND s_kickoff='1')THEN
+			s_ON_OFFSampled<=s_ON_OFF;
+			s_resultSampled<=s_result;
+		END IF;		
+			
+	END PROCESS;
+		ON_OFF<=s_ON_OFFSampled;
+		result<=s_resultSampled;
 
 		
 

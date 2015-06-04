@@ -32,7 +32,7 @@ BEGIN
 			s_trep_ok <= s_trep_ok(4 DOWNTO 0)& s_trep;--Jedesmal wenn die t rep stimmt wird eine 1 in das s_trep_ok geschrieben
 		ELSIF(rising_edge(clock) AND kickoff='1' AND s_negative_flanke='1')THEN
 			s_puls<=s_time;
-		ELSIF(rising_edge(clock) AND kickoff='1' AND unsigned(s_time)<250) THEN
+		ELSIF(rising_edge(clock) AND kickoff='1' AND unsigned(s_time)<270) THEN
 			s_time<=std_logic_vector(unsigned(s_time)+1);	
 		END IF;		
 			
@@ -68,15 +68,15 @@ BEGIN
 			"1011" WHEN  (unsigned(s_puls)=20) ELSE
 			"1010" WHEN  (unsigned(s_puls)=21) ELSE
 			"1001" WHEN  (unsigned(s_puls)=22) ELSE
-			"1000" WHEN  (unsigned(s_puls)=23) ELSE
 			"0000" WHEN  (unsigned(s_puls)=23) ELSE
-			"0001" WHEN  (unsigned(s_puls)=24) ELSE
-			"0010" WHEN  (unsigned(s_puls)=25) ELSE
-			"0011" WHEN  (unsigned(s_puls)=26) ELSE
-			"0100" WHEN  (unsigned(s_puls)=27) ELSE
-			"0101" WHEN  (unsigned(s_puls)=28) ELSE
-			"0110" WHEN  (unsigned(s_puls)=29) ELSE
-			"0111" WHEN  (unsigned(s_puls)>=30) ELSE--Max Forward
+			"0000" WHEN  (unsigned(s_puls)=24) ELSE
+			"0001" WHEN  (unsigned(s_puls)=25) ELSE
+			"0010" WHEN  (unsigned(s_puls)=26) ELSE
+			"0011" WHEN  (unsigned(s_puls)=27) ELSE
+			"0100" WHEN  (unsigned(s_puls)=28) ELSE
+			"0101" WHEN  (unsigned(s_puls)=29) ELSE
+			"0110" WHEN  (unsigned(s_puls)=30) ELSE
+			"0111" WHEN  (unsigned(s_puls)>=31) ELSE--Max Forward
 			"0000";
 
 
