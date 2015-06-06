@@ -1,6 +1,8 @@
-vsim -t ns test_bench 
+vsim -t ns Top_level 
 add wave -hex *
-force clock	0 0ns, 1 10ns -repeat 20ns 
+force clock	0 0ns, 1 10ns -repeat 21ns 
 force reset	1 0ns, 0 20ns
+force ch_dir	1 0ns, 0 1600ns -repeat 14ms
+force ch_spe	1 0ns, 0 1400ns -repeat 14ms
 
-run 6000ns
+run 150ms
