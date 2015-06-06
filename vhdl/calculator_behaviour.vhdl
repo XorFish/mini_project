@@ -14,10 +14,8 @@ BEGIN
 	s_right_result<="0"&std_logic_vector(unsigned(s_speed)- unsigned(s_right)) WHEN(unsigned(s_speed)>=unsigned(s_right)) ELSE 
 			"1"&std_logic_vector(unsigned(s_right)- unsigned(s_speed));
 
-	left  <= s_left_result  WHEN speed(3)= '1' ELSE (s_left_result  XOR "1000");
+	left  <= s_left_result  WHEN speed(3)= '0' ELSE (s_left_result  XOR "1000");
 	right <= s_right_result WHEN speed(3)= '0' ELSE (s_right_result XOR "1000");--motor umpolen
-
-	
 END calc;
 
 

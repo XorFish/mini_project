@@ -3,4 +3,4 @@ add wave -hex *
 force clock	0 0ns, 1 10ns -repeat 20ns 
 force reset	1 0ns, 0 20ns
 
-run 6ms
+run 6000ns

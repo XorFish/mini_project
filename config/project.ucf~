@@ -6,6 +6,17 @@ NET "ch_dir" LOC = "N5" ;
 NET "ch_spe" LOC = "M8" ;
 NET "reset" LOC = "L8" | PULLUP ;
 
+NET "out_l0" LOC = "P13" ;
+NET "out_l1" LOC = "P12" ;
+NET "out_l2" LOC = "N11" ;
+NET "out_l3" LOC = "P11" ;
+
+
+NET "out_r0" LOC = "R5" ;
+NET "out_r1" LOC = "T6" ;
+NET "out_r2" LOC = "T7" ;
+NET "out_r3" LOC = "R7" ;
+
 
 TIMESPEC "TS_clock" = PERIOD "clock" 48 MHz HIGH 50 %;
 

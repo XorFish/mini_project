@@ -6,26 +6,47 @@ NET "ch_dir" LOC = "N5" ;
 NET "ch_spe" LOC = "M8" ;
 NET "reset" LOC = "L8" | PULLUP ;
 
-NET "out_l0" LOC = "P13" ;
-NET "out_l1" LOC = "P12" ;
-NET "out_l2" LOC = "N11" ;
-NET "out_l3" LOC = "P11" ;
+#NET "Receiver_show" LOC = "F12" | PULLUP ;
+#NET "Calculator_show" LOC = "F10" | PULLUP ;
+#NET "Transmitter_show" LOC = "D12" | PULLUP ;
+
+#NET "SM_signal(0)" LOC = "L9" | PULLUP ;
+#NET "SM_signal(1)" LOC = "L10" | PULLUP ;
+#NET "SM_signal(2)" LOC = "M11" | PULLUP ;
+#NET "SM_signal(3)" LOC = "K11" | PULLUP ;
+#NET "SM_signal(4)" LOC = "K12" | PULLUP ;
+#NET "SM_signal(5)" LOC = "J10" | PULLUP ;
+#NET "SM_signal(6)" LOC = "J11" | PULLUP ;
+#NET "SM_signal(7)" LOC = "H10" | PULLUP ;
+#NET "SM_signal(8)" LOC = "H11" | PULLUP ;
 
 
-NET "out_r0" LOC = "R5" ;
-NET "out_r1" LOC = "T6" ;
-NET "out_r2" LOC = "T7" ;
-NET "out_r3" LOC = "R7" ;
 
-NET "c_out0" LOC = "P8" ;
-NET "c_out1" LOC = "P7" ;
-NET "c_out2" LOC = "P6" ;
-NET "c_out3" LOC = "N6" ;
+NET "LED(0)" LOC = "P13" ;
+NET "LED(1)" LOC = "P12" ;
+NET "LED(2)" LOC = "N11" ;
+NET "LED(3)" LOC = "P11" ;
+NET "LED(4)" LOC = "P10" ;
+NET "LED(5)" LOC = "P9" ;
+NET "LED(6)" LOC = "P8" ;
+NET "LED(7)" LOC = "P7" ;
+NET "LED(8)" LOC = "P6" ;
+NET "LED(9)" LOC = "P5" ;
+NET "LED(10)" LOC = "T2" ;
+NET "LED(11)" LOC = "T3" ;
+NET "LED(12)" LOC = "R3" ;
+NET "LED(13)" LOC = "T4" ;
+NET "LED(14)" LOC = "T5" ;
+NET "LED(15)" LOC = "R5" ;
+NET "LED(16)" LOC = "T6" ;
+NET "LED(17)" LOC = "T7" ;
+NET "LED(18)" LOC = "R7" ;
 
-NET "c_out4" LOC = "P5" ;
-NET "c_out5" LOC = "T2" ;
-NET "c_out6" LOC = "T3" ;
-NET "c_out7" LOC = "R3" ;
+
+
+
+
+
 
 TIMESPEC "TS_clock" = PERIOD "clock" 48 MHz HIGH 50 %;
 

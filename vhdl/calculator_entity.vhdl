@@ -6,5 +6,4 @@ ENTITY calculator IS
 
 PORT(	speed, direction: IN std_logic_vector(3 DOWNTO 0);
 	left, right: OUT std_logic_vector(3 DOWNTO 0));
-	
 END calculator;
