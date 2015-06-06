@@ -12,6 +12,7 @@ SIGNAL s_Direction:	std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Speed:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Left:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Right:		std_logic_vector(3 DOWNTO 0);
+SIGNAL s_LeftReversed:	std_logic_vector(3 DOWNTO 0);
 
 --Settings Kermit: st_trim:8 th_trim:8
 
@@ -62,7 +63,7 @@ BEGIN
 					result=>s_Speed
 			);
 
-	s_ON_OFF<=s_ON_OFF_dir OR s_ON_OFF_spe;
+	s_ON_OFF<=s_ON_OFF_dir AND s_ON_OFF_spe;
 	
 
 	calculator_device: calculator
@@ -83,9 +84,9 @@ BEGIN
 	LED(19 DOWNTO 16)<=s_left;
         --------------------------------------------
 	
-
+	s_LeftReversed<=NOT(s_left(3))&s_left(2 DOWNTO 0);
 	transmitter_left: TRANSMITTER
-			PORT MAP(	SM=> s_Left,      
+			PORT MAP(	SM=> s_LeftReversed,      
 					ON_OFF=>s_ON_OFF,				
 					reset=>reset,	
 					clock=>clock,	
