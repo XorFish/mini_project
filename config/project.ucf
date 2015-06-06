@@ -6,19 +6,19 @@ NET "ch_dir" LOC = "N5" ;
 NET "ch_spe" LOC = "M8" ;
 NET "reset" LOC = "L8" | PULLUP ;
 
-#NET "Receiver_show" LOC = "F12" | PULLUP ;
-#NET "Calculator_show" LOC = "F10" | PULLUP ;
-#NET "Transmitter_show" LOC = "D12" | PULLUP ;
+NET "Receiver_show" LOC = "F12" | PULLUP ;
+NET "Calculator_show" LOC = "F10" | PULLUP ;
+NET "Transmitter_show" LOC = "D12" | PULLUP ;
 
-#NET "SM_signal(0)" LOC = "L9" | PULLUP ;
-#NET "SM_signal(1)" LOC = "L10" | PULLUP ;
-#NET "SM_signal(2)" LOC = "M11" | PULLUP ;
-#NET "SM_signal(3)" LOC = "K11" | PULLUP ;
-#NET "SM_signal(4)" LOC = "K12" | PULLUP ;
-#NET "SM_signal(5)" LOC = "J10" | PULLUP ;
-#NET "SM_signal(6)" LOC = "J11" | PULLUP ;
-#NET "SM_signal(7)" LOC = "H10" | PULLUP ;
-#NET "SM_signal(8)" LOC = "H11" | PULLUP ;
+NET "SM_signal(0)" LOC = "L9" | PULLUP ;
+NET "SM_signal(1)" LOC = "L10" | PULLUP ;
+NET "SM_signal(2)" LOC = "M11" | PULLUP ;
+NET "SM_signal(3)" LOC = "K11" | PULLUP ;
+NET "SM_signal(4)" LOC = "K12" | PULLUP ;
+NET "SM_signal(5)" LOC = "J10" | PULLUP ;
+NET "SM_signal(6)" LOC = "J11" | PULLUP ;
+NET "SM_signal(7)" LOC = "H10" | PULLUP ;
+NET "SM_signal(8)" LOC = "H11" | PULLUP ;
 
 
 

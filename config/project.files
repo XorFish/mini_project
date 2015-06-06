@@ -6,7 +6,6 @@ Transmitter_entity.vhdl
 calculator_entity.vhdl
 Top_level_entity.vhdl
 
-
 ClockDivider_behaviour.vhdl
 Counter_behaviour.vhdl
 Receiver_behaviour.vhdl

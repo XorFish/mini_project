@@ -9,11 +9,11 @@ PORT(	ch_dir: 		IN std_logic;
 	reset:			IN std_logic;
 	clock:			IN std_logic;
 	
-	--Transmitter_show: 	IN std_logic;
-	--Calculator_show: 	IN std_logic;
-	--Receiver_show: 		IN std_logic;
+	Transmitter_show: 	IN std_logic;
+	Calculator_show: 	IN std_logic;
+	Receiver_show: 		IN std_logic;
 
-	--SM_signal:		IN std_logic_vector(9 DOWNTO 0); --Für Simulation
+	SM_signal:		IN std_logic_vector(9 DOWNTO 0); --Für Simulation
 
 	out_left:		OUT std_logic;
 	out_right:		OUT std_logic;
