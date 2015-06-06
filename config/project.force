@@ -1,4 +1,4 @@
-vsim -t ns test_bench
+vsim -t ns test_bench 
 add wave -hex *
 force clock	0 0ns, 1 10ns -repeat 20ns 
 force reset	1 0ns, 0 20ns

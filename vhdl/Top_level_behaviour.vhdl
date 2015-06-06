@@ -4,16 +4,12 @@ SIGNAL s_ON_OFF_dir: 	std_logic;
 SIGNAL s_ON_OFF_spe: 	std_logic;
 SIGNAL s_ON_OFF: 	std_logic;
 
-SIGNAL s_Receiver:	std_logic;
-SIGNAL s_Transmitter:	std_logic;
-SIGNAL s_Calculator:	std_logic;
-
 SIGNAL s_Direction:	std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Speed:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Left:		std_logic_vector(3 DOWNTO 0);
 SIGNAL s_Right:		std_logic_vector(3 DOWNTO 0);
 
---Settings Kermit: st_trim:8 th_trim:8
+--Settings Kermit: st_trim:33% R.B.U. th_trim:28% L.F.U
 
 COMPONENT RECEIVER
 
@@ -41,11 +37,6 @@ END COMPONENT;
 
 
 BEGIN
-	--Selektion wie Anzeige Nutzen für Simulation
-	--s_Receiver<=Receiver_show;
-	--s_Transmitter<=Transmitter_show;
-	--s_Calculator<=Calculator_show; 
-	
 	channel_direction: RECEIVER
 			PORT MAP(	clock=>clock,
 					reset=>reset,
@@ -73,16 +64,29 @@ BEGIN
 			);
 
 	---------------------------------------------
-	LED(3 DOWNTO 0)<=s_Speed;-- WHEN(s_Receiver = '1')ELSE s_Direction
-	LED(4)<='0';
-	LED(8 DOWNTO 5)<=s_Direction;
-	LED(9)<='0';
-	LED(10)<=s_ON_OFF;
-	LED(11)<='0';
-	LED(15 DOWNTO 12)<=s_right;
-	LED(19 DOWNTO 16)<=s_left;
+	out_l0 <= s_Speed(0);
+	out_l1<= s_Speed(1);
+	out_l2<= s_Speed(2);
+	out_l3<= s_Speed(3);
+
+	out_r0<= s_Direction(0);
+	out_r1<= s_Direction(1);
+	out_r2<= s_Direction(2);
+	out_r3<= s_Direction(3);
+
+	c_out0<=s_Left(0);
+	c_out1<=s_Left(1);
+	c_out2<=s_Left(2);
+	c_out3<=s_Left(3);
+
+	c_out4<=s_right(0);
+	c_out5<=s_right(1);
+	c_out6<=s_right(2);
+	c_out7<=s_right(3);
+
+
         --------------------------------------------
-	
+
 
 	transmitter_left: TRANSMITTER
 			PORT MAP(	SM=> s_Left,      
