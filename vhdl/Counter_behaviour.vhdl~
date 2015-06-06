@@ -16,7 +16,7 @@ BEGIN
 	--Vergleichswerte für s_time: t(kikcoff)=3200/48MHz=66,66*10^-6s 
 	--13ms->195 Kickoffs     15ms->225 Kickoffs
 
-	s_trep<='1' WHEN (unsigned(s_time)>195 AND unsigned(s_time)<225);
+	s_trep<='1' WHEN (unsigned(s_time)>240 AND unsigned(s_time)<282);
 	
 	PROCESS(clock, kickoff, s_trep_ok, s_trep, s_positive_flanke, s_time, reset)
 	BEGIN
@@ -29,10 +29,9 @@ BEGIN
 			s_trep_ok <= s_trep_ok(4 DOWNTO 0)& s_trep;--Jedesmal wenn die t rep stimmt wird eine 1 in das s_trep_ok geschrieben
 		ELSIF(rising_edge(clock) AND kickoff='1' AND s_negative_flanke='1')THEN
 			s_puls<=s_time;
-		ELSIF(rising_edge(clock) AND kickoff='1' AND unsigned(s_time)<225) THEN
+		ELSIF(rising_edge(clock) AND kickoff='1' AND unsigned(s_time)<300) THEN
 			s_time<=std_logic_vector(unsigned(s_time)+1);
 		ELSIF(rising_edge(clock) AND kickoff='1') THEN
-			s_time<="000000000";--Null setzen
 			s_trep_ok<="000000";
 
 		END IF;		
@@ -62,22 +61,22 @@ BEGIN
 	--13ms->195 Kickoffs     15ms->225 Kickoffs
 
 
-		result<="1111" WHEN  (unsigned(s_puls)<=16) ELSE--max Reverse
-			"1110" WHEN  (unsigned(s_puls)=17) ELSE
-			"1101" WHEN  (unsigned(s_puls)=18) ELSE
-			"1100" WHEN  (unsigned(s_puls)=19) ELSE
-			"1011" WHEN  (unsigned(s_puls)=20) ELSE
-			"1010" WHEN  (unsigned(s_puls)=21) ELSE
-			"1001" WHEN  (unsigned(s_puls)=22) ELSE
-			"0000" WHEN  (unsigned(s_puls)=23) ELSE
-			"0000" WHEN  (unsigned(s_puls)=24) ELSE
-			"0001" WHEN  (unsigned(s_puls)=25) ELSE
-			"0010" WHEN  (unsigned(s_puls)=26) ELSE
-			"0011" WHEN  (unsigned(s_puls)=27) ELSE
-			"0100" WHEN  (unsigned(s_puls)=28) ELSE
-			"0101" WHEN  (unsigned(s_puls)=29) ELSE
-			"0110" WHEN  (unsigned(s_puls)=30) ELSE
-			"0111" WHEN  (unsigned(s_puls)>=31) ELSE--Max Forward
+		result<="1111" WHEN  (unsigned(s_puls)<=18) ELSE--max Reverse
+			"1110" WHEN  (unsigned(s_puls)=19) ELSE
+			"1101" WHEN  (unsigned(s_puls)=20) ELSE
+			"1100" WHEN  (unsigned(s_puls)=21) ELSE
+			"1011" WHEN  (unsigned(s_puls)=22) ELSE
+			"1010" WHEN  (unsigned(s_puls)=23) ELSE
+			"1001" WHEN  (unsigned(s_puls)=24) ELSE
+			"0000" WHEN  (unsigned(s_puls)=25) ELSE
+			"0000" WHEN  (unsigned(s_puls)=26) ELSE
+			"0001" WHEN  (unsigned(s_puls)=27) ELSE
+			"0010" WHEN  (unsigned(s_puls)=28) ELSE
+			"0011" WHEN  (unsigned(s_puls)=29) ELSE
+			"0100" WHEN  (unsigned(s_puls)=30) ELSE
+			"0101" WHEN  (unsigned(s_puls)=31) ELSE
+			"0110" WHEN  (unsigned(s_puls)=32) ELSE
+			"0111" WHEN  (unsigned(s_puls)>=33) ELSE--Max Forward
 			"0000";
 
 

@@ -6,9 +6,9 @@ BEGiN
 	BEGIN
 		IF(reset='1')THEN
 			s_time<="000000000000";
-		ELSIF (rising_edge(clock)) AND (NOT(s_time="101010000000")) THEN --	ELSIF (rising_edge(clock)) AND (NOT(s_time="110010000000")) THEN
+		ELSIF (rising_edge(clock)) AND (NOT(s_time="101000000000")) THEN --	ELSIF (rising_edge(clock)) AND (NOT(s_time="110010000000")) THEN
 			s_time<=std_logic_vector(unsigned(s_time) +1);
-		ELSIF (rising_edge(clock)) AND (s_time<="101010000000") THEN	
+		ELSIF (rising_edge(clock)) AND (s_time<="101000000000") THEN	
 			s_time<="000000000000";
 		END IF;
 	END PROCESS;
