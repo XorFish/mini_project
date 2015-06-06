@@ -5,7 +5,8 @@ Receiver_entity.vhdl
 Transmitter_entity.vhdl
 calculator_entity.vhdl
 Top_level_entity.vhdl
-
+test_bench_entity.vhdl
+file_read-entity.vhdl
 
 ClockDivider_behaviour.vhdl
 Counter_behaviour.vhdl
@@ -13,3 +14,5 @@ Receiver_behaviour.vhdl
 Transmitter_behaviour.vhdl
 calculator_behaviour.vhdl
 Top_level_behaviour.vhdl
+test_bench_behaviour.vhdl
+file_read-behavior.vhdl
