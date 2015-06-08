@@ -1,6 +1,11 @@
-vsim -t ns top_level_entity
+vsim -t ns TRANSMITTER
 add wave -hex *
 force clock	0 0ns, 1 10ns -repeat 20ns 
 force reset	1 0ns, 0 20ns
+force SM(0)  0 0ns , 1 50ms , 0 100ms , 0 150ms 
+force SM(1)  0 0ns , 1 50ms , 0 100ms , 1 150ms
+force SM(2)  0 0ns , 1 50ms , 1 100ms , 1 150ms
+force SM(3)  0 0ns , 1 50ms , 1 100ms , 0 150ms
+force ON_OFF 1 0ns 		
 
-run 6000ns
+run 200ms
