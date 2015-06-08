@@ -2,6 +2,6 @@ vsim -t ns RECEIVER
 add wave -hex *
 force clock	0 0ns, 1 10ns -repeat 21ns 
 force reset	1 0ns, 0 20ns
-force channel	0 0ns, 1 1ms, 0 1.96ms, 1 15ms, 0 16.33ms, 1 19ms, 0 20.7ms -repeat 32ms
+force channel	1 0ns, 0 1600000ns	-repeat 14ms
 
 run 150ms

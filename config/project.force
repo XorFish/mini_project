@@ -1,6 +1,7 @@
-vsim -t ns top_level_entity
+vsim -t ns RECEIVER
 add wave -hex *
-force clock	0 0ns, 1 10ns -repeat 20ns 
+force clock	0 0ns, 1 10ns -repeat 21ns 
 force reset	1 0ns, 0 20ns
+force channel	0 0ns, 1 1ms, 0 1.96ms, 1 15ms, 0 16.33ms, 1 29ms, 0 30.7ms -repeat 42ms
 
-run 6000ns
+run 150ms
